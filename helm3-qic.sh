@@ -172,13 +172,8 @@ helm3 "$CMD" mt-portal "$TEMPLATE_BASE/mt-portal" --namespace=go \
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/project_service/ops/helm/project" || {
-  echo 'failed to lint'
-  exit 1
-}
-
 helm3 delete project
-drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt project_service
+
 helm3 "$CMD" project "$TEMPLATE_BASE/project" --namespace=go \
   --values "$TEMPLATE_BASE/project/values.yaml" \
   --values "$VALUES_BASE/project/values-btf.yaml" \
@@ -197,6 +192,7 @@ helm3 "$CMD" project "$TEMPLATE_BASE/project" --namespace=go \
   --set 'envs.deployment.OI_TOKEN_PROJECT_SERVICE=2485D98A3CDC1BC454C9ABA9B2930329574A187C' \
   --set 'envs.deployment.OI_PROJECT_SVC_REDIS_CACHE_HOST=go-ec.turtle.oi.io' \
   --set 'image.tag=398'
+
 helm3 test project
 
 ############################################################################################################################################
