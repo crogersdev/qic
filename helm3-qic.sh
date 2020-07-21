@@ -27,10 +27,6 @@ helm3 test user
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/artifact_service/ops/helm/artifact" || {
-  echo 'failed to lint'
-  exit 1
-}
 helm3 delete artifact
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt artifact_service
 helm3 "$CMD" artifact "$TEMPLATE_BASE/artifact" --namespace=go \
@@ -48,11 +44,6 @@ helm3 "$CMD" artifact "$TEMPLATE_BASE/artifact" --namespace=go \
 helm3 test artifact
 
 ############################################################################################################################################
-
-helm3 lint "$tEMPLATE_BASE/sam_service/ops/helm/sam" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 helm3 delete sam
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt sam
@@ -73,11 +64,6 @@ helm3 "$CMD" sam "$TEMPLATE_BASE/sam" --namespace=go \
 helm3 test sam
 
 ############################################################################################################################################
-
-helm3 lint "$TEMPLATE_BASE/visualization_service/ops/helm/visualization" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 helm3 delete visualization
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt visualization_service
@@ -101,11 +87,6 @@ helm3 test visualization
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/aoi_service/ops/helm/aoi" || {
-  echo 'failed to lint'
-  exit 1
-}
-
 helm3 delete aoi
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt aoi_service
 helm3 "$CMD" aoi "$TEMPLATE_BASE/aoi" --namespace=go \
@@ -127,11 +108,6 @@ helm test aoi
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/catalog_service/ops/helm/catalog" || {
-  echo 'failed to lint'
-  exit 1
-}
-
 helm3 delete catalog
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt catalog_service
 helm3 "$CMD" catalog "$TEMPLATE_BASE/catalog" --namespace=go \
@@ -150,11 +126,6 @@ helm3 "$CMD" catalog "$TEMPLATE_BASE/catalog" --namespace=go \
 helm test catalog
 
 ############################################################################################################################################
-
-helm3 lint "$TEMPLATE_BASE/mt-portal/ops/helm/mt-portal" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 helm3 delete mt-portal
 helm3 "$CMD" mt-portal "$TEMPLATE_BASE/mt-portal" --namespace=go \
@@ -197,11 +168,6 @@ helm3 test project
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/go_frontend/ops/helm/go-frontend" || {
-  echo 'failed to lint'
-  exit 1
-}
-
 helm3 delete go-frontend
 helm3 "$CMD" go-frontend "$TEMPLATE_BASE/go-frontend" --namespace=go \
   --values "$TEMPLATE_BASE/go-frontend/values.yaml" \
@@ -217,11 +183,6 @@ helm3 "$CMD" go-frontend "$TEMPLATE_BASE/go-frontend" --namespace=go \
   --set 'envs.deployment.REACT_APP_PORTAL_ENDPOINT=http://mt.apps.turtle.oi.io' 
 
 ############################################################################################################################################
-
-helm3 lint "$TEMPLATE_BASE/notification/ops/helm/notification" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 helm3 delete notification
 drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt notification
@@ -239,11 +200,6 @@ helm3 "$CMD" notification "$TEMPLATE_BASE/notification" --namespace=go \
 helm3 test notification
 
 ############################################################################################################################################
-
-helm3 lint "$TEMPLATE_BASE/go_services/ops/helm/go-services" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 helm3 delete go-services
 helm3 "$CMD" go-services "$TEMPLATE_BASE/go-services" --namespace=go \
@@ -322,11 +278,6 @@ helm3 "$CMD" go-pipelines "$TEMPLATE_BASE/go-pipelines" --namespace=go \
 
 ############################################################################################################################################
 
-helm3 lint "$TEMPLATE_BASE/streamx-controller/ops/helm/streamx-controller" || {
-  echo 'failed to lint'
-  exit 1
-}
-helm3 delete streamx-controller
 helm3 "$CMD" streamx-controller "$TEMPLATE_BASE/streamx-controller" --namespace=go \
   --values "$TEMPLATE_BASE/streamx-controller/values.yaml" \
   --values "$VALUES_BASE/streamx-controller/values-btf.yaml" \
