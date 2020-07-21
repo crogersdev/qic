@@ -65,15 +65,13 @@ helm3 test sam
 
 ############################################################################################################################################
 
-helm3 delete visualization
-drop-db -e $HOME/dev/turtle-deploy/okd-resources/kv-sub.txt visualization_service
 helm3 "$CMD" visualization "$TEMPLATE_BASE/visualization" --namespace=go \
   --values "$TEMPLATE_BASE/visualization/values.yaml" \
   --values "$VALUES_BASE/visualization/values-btf.yaml" \
   --set 'ingress.domain=apps.turtle.oi.io' \
-  --set 'envs.deployment.OI_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.deployment.OI_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.deployment.OI_DBPWD=visualization_service' \
-  --set 'envs.deployment.OI_TILE_SERVICE_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.deployment.OI_TILE_SERVICE_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.deployment.OI_TILE_SERVICE_DBPWD=tile_service' \
   --set 'envs.deployment.OI_USER_SVC_REST_SERVER=http://api-user.apps.turtle.oi.io' \
   --set 'envs.deployment.OI_VIZ_SVC_REDIS_CACHE_HOST=go-ec.turtle.oi.io' \
@@ -83,7 +81,6 @@ helm3 "$CMD" visualization "$TEMPLATE_BASE/visualization" --namespace=go \
   --set 'visualizationService.initDB.enabled=false' \
   --set 'envs.deployment.OI_TOKEN_DEPLOYMENT_TEST=2ccb36c06d3c548ad5d14ae141c26098d751d215' \
   --set 'image.tag=258'
-helm3 test visualization
 
 ############################################################################################################################################
 
