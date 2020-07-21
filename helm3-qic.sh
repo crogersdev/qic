@@ -143,17 +143,15 @@ helm3 "$CMD" mt-portal "$TEMPLATE_BASE/mt-portal" --namespace=go \
 
 ############################################################################################################################################
 
-helm3 delete project
-
 helm3 "$CMD" project "$TEMPLATE_BASE/project" --namespace=go \
   --values "$TEMPLATE_BASE/project/values.yaml" \
   --values "$VALUES_BASE/project/values-btf.yaml" \
   --set 'projectService.initDB.enabled=false' \
   --set 'projectService.initDB.enabled=false' \
   --set 'ingress.domain=apps.turtle.oi.io' \
-  --set 'envs.deployment.OI_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.deployment.OI_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.deployment.OI_DBPWD=project_service' \
-  --set 'envs.deployment.OI_RO_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.deployment.OI_RO_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.deployment.OI_RO_DBPWD=project_service' \
   --set 'envs.deployment.OI_USER_SVC_REST_SERVER=http://api-user.apps.turtle.oi.io' \
   --set 'envs.deployment.OI_AOI_SVC_REST_SERVER=http://api-aoi.apps.turtle.oi.io' \
@@ -163,8 +161,6 @@ helm3 "$CMD" project "$TEMPLATE_BASE/project" --namespace=go \
   --set 'envs.deployment.OI_TOKEN_PROJECT_SERVICE=2485D98A3CDC1BC454C9ABA9B2930329574A187C' \
   --set 'envs.deployment.OI_PROJECT_SVC_REDIS_CACHE_HOST=go-ec.turtle.oi.io' \
   --set 'image.tag=398'
-
-helm3 test project
 
 ############################################################################################################################################
 
