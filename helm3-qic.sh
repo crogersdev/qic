@@ -376,5 +376,5 @@ helm3 "$CMD" streamx-controller "$TEMPLATE_BASE/streamx-controller" --namespace=
   --set 'envs.decider.S3_BUCKET=combine-runtime-prod' \
   --set 'envs.decider.S3_ASTRIUM_REQUEST_BUCKET=combine-runtime-prod' \
   --set 'envs.decider.KERAS_BACKEND=tensorflow' \
-  --set 'image.tag=40'
+  --set 'image.tag=42'
 
