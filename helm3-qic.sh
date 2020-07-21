@@ -221,7 +221,8 @@ helm3 "$CMD" go-services "$TEMPLATE_BASE/go-services" --namespace=go \
   --set 'envs.deployment.OI_AIRFLOW_DBHOST=postgres.dev.turtle.oi.io' \
   --set 'envs.deployment.OI_GOSIGN_KEY=AKIAUZIKTQVX5WJC55FF' \
   --set 'envs.deployment.OI_GOSIGN_SEC=jLVCj+fr8S/WccAPPCMWKmKwKRYsbxnIIjPpXlLM' \
-  --set 'envs.deployment.OI_USER_SVC_CACHE_REDIS=go-ec.turtle.oi.io' 
+  --set 'envs.deployment.OI_USER_SVC_CACHE_REDIS=go-ec.turtle.oi.io' \
+  --set 'image.tag=582'
 
 ############################################################################################################################################
 
