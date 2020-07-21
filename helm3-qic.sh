@@ -194,7 +194,6 @@ helm3 test notification
 
 ############################################################################################################################################
 
-helm3 delete go-services
 helm3 "$CMD" go-services "$TEMPLATE_BASE/go-services" --namespace=go \
   --values "$TEMPLATE_BASE/go-services/values.yaml" \
   --values "$VALUES_BASE/go-services/values-btf.yaml" \
@@ -216,18 +215,13 @@ helm3 "$CMD" go-services "$TEMPLATE_BASE/go-services" --namespace=go \
   --set 'envs.deployment.OI_DBPWD=proteus' \
   --set 'envs.deployment.OI_DBNAME=proteus' \
   --set 'envs.deployment.OI_AIRFLOW_DBPWD=airflow' \
-  --set 'envs.deployment.OI_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.deployment.OI_PROTEUS_VERSION2_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.deployment.OI_STREAMX_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.deployment.OI_AIRFLOW_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.deployment.OI_DBHOST=postgresturtle.oi.io' \
+  --set 'envs.deployment.OI_PROTEUS_VERSION2_DBHOST=postgres.turtle.oi.io' \
+  --set 'envs.deployment.OI_STREAMX_DBHOST=postgres.turtle.oi.io' \
+  --set 'envs.deployment.OI_AIRFLOW_DBHOST=postgres.dev.turtle.oi.io' \
   --set 'envs.deployment.OI_GOSIGN_KEY=AKIAUZIKTQVX5WJC55FF' \
   --set 'envs.deployment.OI_GOSIGN_SEC=jLVCj+fr8S/WccAPPCMWKmKwKRYsbxnIIjPpXlLM' \
   --set 'envs.deployment.OI_USER_SVC_CACHE_REDIS=go-ec.turtle.oi.io' 
-
-helm3 lint "$TEMPLATE_BASE/go_pipelines/ops/helm/go-pipelines" || {
-  echo 'failed to lint'
-  exit 1
-}
 
 ############################################################################################################################################
 
