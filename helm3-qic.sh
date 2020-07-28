@@ -376,4 +376,4 @@ helm3 "$CMD" streamx-controller "$TEMPLATE_BASE/streamx-controller" --namespace=
   --set 'envs.decider.OI_REGION=us-east-1' \
   --set 'envs.decider.AWS_SQS_ENDPOINT=https://sqs.us-east-1.amazonaws.com' \
   --set 'envs.decider.AWS_S3_ENDPOINT=https://s3.us-east-1.amazonaws.com' \
-  --set 'image.tag=42'
+  --set 'image.tag=44'
