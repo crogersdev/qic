@@ -224,6 +224,8 @@ helm3 "$CMD" go-services "$TEMPLATE_BASE/go-services" --namespace=go \
   --set 'envs.deployment.OI_USER_SVC_CACHE_REDIS=go-ec.turtle.oi.io' \
   --set 'envs.deployment.OI_ENV=qic' \
   --set 'envs.deployment.OI_REGION=us-east-1' \
+  --set 'envs.deployment.AWS_SQS_ENDPOINT=https://sqs.us-east-1.amazonaws.com' \
+  --set 'envs.deployment.AWS_S3_ENDPOINT=https://s3.us-east-1.amazonaws.com' \
   --set 'image.tag=582'
 
 ############################################################################################################################################
@@ -316,6 +318,8 @@ helm3 "$CMD" streamx-controller "$TEMPLATE_BASE/streamx-controller" --namespace=
   --set 'envs.controller.KERAS_BACKEND=tensorflow' \
   --set 'envs.controller.OI_ENV=qic' \
   --set 'envs.controller.OI_REGION=us-east-1' \
+  --set 'envs.controller.AWS_SQS_ENDPOINT=https://sqs.us-east-1.amazonaws.com' \
+  --set 'envs.controller.AWS_S3_ENDPOINT=https://s3.us-east-1.amazonaws.com' \
   --set 'envs.decider.OI_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.decider.OI_DBUSER=proteus' \
   --set 'envs.decider.OI_DBPWD=proteus' \
@@ -370,4 +374,6 @@ helm3 "$CMD" streamx-controller "$TEMPLATE_BASE/streamx-controller" --namespace=
   --set 'envs.decider.KERAS_BACKEND=tensorflow' \
   --set 'envs.decider.OI_ENV=qic' \
   --set 'envs.decider.OI_REGION=us-east-1' \
+  --set 'envs.decider.AWS_SQS_ENDPOINT=https://sqs.us-east-1.amazonaws.com' \
+  --set 'envs.decider.AWS_S3_ENDPOINT=https://s3.us-east-1.amazonaws.com' \
   --set 'image.tag=42'
