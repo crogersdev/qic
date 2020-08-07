@@ -236,7 +236,7 @@ helm3 "$CMD" go-pipelines "$TEMPLATE_BASE/go-pipelines" --namespace=go \
   --values "$VALUES_BASE/go-pipelines/values-btf.yaml" \
   --set 'ingress.domain=apps.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_JOB=streamx-controller' \
-  --set 'envs.streamxConfig.OI_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_DBUSER=streamx' \
   --set 'envs.streamxConfig.OI_DBPWD=streamx' \
   --set 'envs.streamxConfig.OI_DBNAME=streamx' \
@@ -245,7 +245,7 @@ helm3 "$CMD" go-pipelines "$TEMPLATE_BASE/go-pipelines" --namespace=go \
   --set 'envs.streamxConfig.OI_PROJECT_SERVICE_URL=http://api-project.apps.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_VISUALIZATION_SERVICE_URL=http://api-visualization.apps.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_NOTIFICATION_URL=http://api-notification.apps.turtle.oi.io' \
-  --set 'envs.streamxConfig.OI_ORDERING_INGESTION_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_ORDERING_INGESTION_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_ORDERING_INGESTION_DBPWD=' \
   --set 'envs.streamxConfig.OI_AOI_SERVICE_URL=http://api-aoi.apps.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_GOPORTAL_URL=http://go.apps.turtle.oi.io' \
@@ -258,15 +258,16 @@ helm3 "$CMD" go-pipelines "$TEMPLATE_BASE/go-pipelines" --namespace=go \
   --set 'envs.streamxConfig.OI_STREAMX_DBUSER=streamx' \
   --set 'envs.streamxConfig.OI_STREAMX_DBNAME=streamx' \
   --set 'envs.streamxConfig.OI_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.streamxConfig.OI_PROTEUS_VERSION2_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.streamxConfig.OI_STREAMX_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_PROTEUS_VERSION2_DBHOST=postgres.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_STREAMX_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_GOSIGN_KEY=AKIAUZIKTQVX5WJC55FF' \
   --set 'envs.streamxConfig.OI_GOSIGN_SEC=jLVCj+fr8S/WccAPPCMWKmKwKRYsbxnIIjPpXlLM' \
   --set 'envs.streamxConfig.OI_USER_SVC_CACHE_REDIS=go-ec.turtle.oi.io' \
-  --set 'envs.streamxConfig.OI_TILE_SERVICE_DBHOST=platform.dev.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_TILE_SERVICE_DBHOST=postgres.turtle.oi.io' \
   --set 'envs.streamxConfig.OI_TILE_SERVICE_DBPWD=tile_service' \
-  --set 'envs.streamxConfig.OI_TILE_SERVICE_PROD_DBHOST=platform.dev.turtle.oi.io' \
-  --set 'envs.streamxConfig.OI_TILE_SERVICE_PROD_DBPWD=tile_service'
+  --set 'envs.streamxConfig.OI_TILE_SERVICE_PROD_DBHOST=postgres.turtle.oi.io' \
+  --set 'envs.streamxConfig.OI_TILE_SERVICE_PROD_DBPWD=tile_service' \
+  --set 'image.tag=latest'
 
 ############################################################################################################################################
 
